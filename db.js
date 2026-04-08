@@ -1,7 +1,7 @@
 'use strict';
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
-const { encrypt } = require('../utils/crypto');
+const { encrypt } = require('./crypto');
 
 // ── IN-MEMORY STORE ───────────────────────────────
 // Replace with PostgreSQL in production: see README
