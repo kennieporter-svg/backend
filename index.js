@@ -8,13 +8,12 @@ const helmet  = require('helmet');
 const path    = require('path');
 
 const { seed } = require('./db');
-const authRoutes    = require('./routes/auth');
-const listingRoutes = require('./routes/listings');
-const orderRoutes   = require('./routes/orders');
-const chatRoutes    = require('./routes/chat');
-const adminRoutes   = require('./routes/admin');
-const miscRoutes    = require('./routes/misc');
-
+const authRoutes = require('./auth');
+const listingRoutes = require('./listings');
+const orderRoutes = require('./orders');
+const chatRoutes = require('./chat');
+const adminRoutes = require('./admin');
+const miscRoutes = require('./misc');
 const app    = express();
 const server = http.createServer(app);
 const PORT   = process.env.PORT || 5000;
