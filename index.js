@@ -7,7 +7,7 @@ const cors    = require('cors');
 const helmet  = require('helmet');
 const path    = require('path');
 
-const { seed }      = require('./config/db');
+const { seed } = require('./db');
 const authRoutes    = require('./routes/auth');
 const listingRoutes = require('./routes/listings');
 const orderRoutes   = require('./routes/orders');
