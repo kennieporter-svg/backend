@@ -2,8 +2,8 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
-const { DB } = require('../config/db');
-const { auth, signToken } = require('../middleware/auth');
+const { DB } = require('./db');
+const { auth, signToken } = require('./auth');
 
 // Helper
 const safe = u => { const c = {...u}; delete c.passwordHash; return c; };
