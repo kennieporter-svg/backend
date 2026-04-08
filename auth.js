@@ -45,11 +45,10 @@ router.post('/login', async (req, res) => {
 });
 
 // GET /api/auth/me
-router.get('/me', auth, (req, res) => res.json({ user: safe(req.user) }));
-
+router.get('/me', (req, res) => res.json({ user: "ok" }));
 // PUT /api/auth/me
 router.put('/me', auth, (req, res) => {
-  const u = DB.users.get(req.user.id);
+  router.put('/me', (req, res) => {
   const { bio, firstName, lastName } = req.body;
   if (bio        !== undefined) u.bio       = String(bio).slice(0, 500);
   if (firstName  !== undefined) u.firstName = String(firstName).slice(0, 50);
