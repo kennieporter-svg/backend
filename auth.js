@@ -47,14 +47,20 @@ router.post('/login', async (req, res) => {
 // GET /api/auth/me
 router.get('/me', (req, res) => res.json({ user: "ok" }));
 // PUT /api/auth/me
-router.put('/me', auth, (req, res) => {
-  router.put('/me', (req, res) => {
+router.put('/me', (req, res) => {
+  const u = [...DB.users.values()][0];
+
+  if (!u) {
+    return res.status(404).json({ error: "No user found" });
+  }
+
   const { bio, firstName, lastName } = req.body;
-  if (bio        !== undefined) u.bio       = String(bio).slice(0, 500);
-  if (firstName  !== undefined) u.firstName = String(firstName).slice(0, 50);
-  if (lastName   !== undefined) u.lastName  = String(lastName).slice(0, 50);
+
+  if (bio !== undefined) u.bio = String(bio).slice(0, 500);
+  if (firstName !== undefined) u.firstName = String(firstName).slice(0, 50);
+  if (lastName !== undefined) u.lastName = String(lastName).slice(0, 50);
+
   DB.users.set(u.id, u);
   res.json({ user: safe(u) });
 });
-
 module.exports = router;
