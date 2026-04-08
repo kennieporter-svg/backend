@@ -1,7 +1,7 @@
 'use strict';
 const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const { DB } = require('../config/db');
+const { DB } = require('./db');
 const { auth, sellerOnly } = require('../middleware/auth');
 
 function enrich(l) {
